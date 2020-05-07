@@ -1,0 +1,5 @@
+para iniciar o server digite no terminal:
+
+node index.js ou nodemon index.js
+
+script do banco disponível na pasta database/tables.sql
