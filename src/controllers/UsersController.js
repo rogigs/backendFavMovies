@@ -1,7 +1,5 @@
 const execSQLQuery = require('../database/connection')
 
-const FilmsController = require('./FilmsController')
-
 const selectUsers = (req, res) => {
     execSQLQuery('SELECT * FROM USERS;', res)
 }
@@ -11,7 +9,7 @@ const filterUsers = (req, res) => {
     if (req.params.id) {
         filter = 'WHERE ID_USERS=' + parseInt(req.params.id)
     }
-     
+
     execSQLQuery('SELECT * FROM USERS ' + filter, res)
 }
 
