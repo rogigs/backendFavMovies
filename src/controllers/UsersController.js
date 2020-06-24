@@ -11,8 +11,7 @@ const filterUsers = (req, res) => {
     if (req.params.id) {
         filter = 'WHERE ID_USERS=' + parseInt(req.params.id)
     }
-
-    FilmsController.deleteFilms(req, res)  
+     
     execSQLQuery('SELECT * FROM USERS ' + filter, res)
 }
 

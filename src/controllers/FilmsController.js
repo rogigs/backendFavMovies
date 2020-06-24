@@ -14,7 +14,8 @@ const filterFilmsUsers = (req, res) => {
 }
 
 const insertFilmsUsers = (req, res) => {
-    const id_users = req.body.ID_USERS
+    const id_users = parseInt(req.params.id)
+    const poster = req.body.POSTER
     const title = req.body.TITLE
     const year = req.body.YEAR_FILM
     const actors = req.body.ACTORS
@@ -22,15 +23,15 @@ const insertFilmsUsers = (req, res) => {
     const avaliation = req.body.AVALIATION
     const comments = req.body.COMMENTS
 
-    execSQLQuery(`insert into FILMS(ID_USERS, TITLE, YEAR_FILM, ACTORS, PLOT, AVALIATION, COMMENTS)` +
-        `VALUES(${id_users}, '${title}', '${year}', '${actors}', '${plot}', ${avaliation}, '${comments}');`, res)
+    execSQLQuery(`insert into FILMS(ID_USERS, POSTER, TITLE, YEAR_FILM, ACTORS, PLOT, AVALIATION, COMMENTS)` +
+        `VALUES(${id_users}, '${poster}','${title}', '${year}', '${actors}', '${plot}', ${avaliation}, '${comments}');`, res)
 }
 
 const updateFilmsUsers = (req, res) => {
     const id_films = parseInt(req.params.id)
     const avaliation = req.body.AVALIATION
     const comments = req.body.COMMENTS
-    
+
     execSQLQuery(`UPDATE FILMS SET AVALIATION='${avaliation}', COMMENTS='${comments}' ` +
         `WHERE ID_FILM=${id_films}`, res)
 }
